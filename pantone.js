@@ -1,10 +1,9 @@
 
 // # pantone
 
-var request     = require('request')
-  , cheerio     = require('cheerio')
-  , querystring = require('querystring')
-  , _           = require('underscore')
+var request = require('request')
+  , cheerio = require('cheerio')
+  , _       = require('underscore')
 
 // Optiman's query url
 var url = 'http://www.netfront.fr/Services/rgb2pantone/pantone.htm' // ?r=0&g=0&b=0&rgb=000000'
@@ -17,75 +16,83 @@ var defaults = {
   , rgb : ''
 }
 
-// globals to reduce callback nesting
-var options, callback
-
 // main function with callback
-function pantone(_options, _callback) {
+function Pantone(options, callback) {
 
-  options  = _options
-  callback = _callback
+  var self = this
+
+  self.options  = options
+  self.callback = callback
+  self.rows     = []
 
   // check types
-  if (typeof options !== 'object')
+  if (typeof self.options !== 'object')
     return callback(new Error('pantone - `options` is not an object'))
 
-  if (typeof callback !== 'function')
+  if (typeof self.callback !== 'function')
     throw new Error('pantone - `callback` is not a function')
 
   // if user passed options.hex convert it to options.rgb
-  if ('hex' in options) {
-    if (typeof options.hex === 'string') {
-      options.rgb = options.hex
+  if ('hex' in self.options) {
+    if (typeof self.options.hex === 'string') {
+      self.options.rgb = self.options.hex
     }
-    delete options.hex
+    delete self.options.hex
   }
 
   // set defaults
-  options = _.defaults(options, defaults)
-
-  // prepare querystring
-  var qs = querystring.stringify(options)
+  self.options = _.defaults(self.options, defaults)
 
   // send request
-  request(url + '?' + qs, sendRequest)
+  request({ url: url, qs: self.options }, sendRequest(self))
 
 }
 
-var rows = []
+function sendRequest(self) {
 
-function sendRequest(err, res, body) {
+  return function(err, res, body) {
 
-  if (err) {
-    err.message = err.message + '\nPlease visit https://github.com/teelaunch/pms-pantone-color-chart/ to report issues.'
-    return callback(err)
+    if (err) {
+      err.message = err.message + '\nPlease visit https://github.com/teelaunch/pms-pantone-color-chart/ to report issues.'
+      return self.callback(err)
+    }
+
+    var $ = cheerio.load(body)
+
+    if ($('#content table').length === 0)
+      return self.callback(new Error('pantone - color match not available for your request'))
+
+    $('#content table tr').each(parseTable(self));
+
+    // remove header row
+    self.rows = self.rows.slice(2, self.rows.length)
+
+    self.callback(null, self.rows)
+
   }
 
-  var $ = cheerio.load(body)
+}
 
-  if ($('#content table').length === 0)
-    return callback(new Error('pantone - color match not available for your request'))
+function parseTable(self) {
 
-  $('#content table tr').each(parseTable);
-
-  // remove header row
-  rows = rows.slice(2, rows.length)
-
-  callback(null, rows)
+  return function(i,tr) {
+    var $   = require('cheerio')
+      , $td = $(tr).find('td')
+    self.rows.push({
+        dist : parseFloat($td.eq(0).text())
+      , name : $td.eq(1).text()
+      , r    : parseInt($td.eq(2).text(), 10)
+      , g    : parseInt($td.eq(3).text(), 10)
+      , b    : parseInt($td.eq(4).text(), 10)
+      , hex  : $td.eq(5).text().substr(1)
+    })
+  }
 
 }
 
-function parseTable(i,tr) {
-  var $   = require('cheerio')
-    , $td = $(tr).find('td')
-  rows.push({
-      dist : $td.eq(0).text()
-    , name : $td.eq(1).text()
-    , r    : parseInt($td.eq(2).text(), 10)
-    , g    : parseInt($td.eq(3).text(), 10)
-    , b    : parseInt($td.eq(4).text(), 10)
-    , hex  : $td.eq(5).text()
-  })
+function pantone(options, callback) {
+  var p = new Pantone(options, callback)
+  return p
 }
 
 module.exports = pantone

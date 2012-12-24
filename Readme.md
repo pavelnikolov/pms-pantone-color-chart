@@ -78,12 +78,17 @@ Output in table format on command line:
 
 ## Dependency
 
+1. Install npm module:
+
 ```bash
 cd ~/project
 npm install pantone
 ```
 
+2. Require and lookup color:
+
 ```js
+
 var pantone = require('pantone')
 
 // rgb usage

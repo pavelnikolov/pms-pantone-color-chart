@@ -20,13 +20,13 @@ Let's try to find the nearest PMS color to [Teelaunch's][2] blue in hex:
 ![Teelaunch Logo](https://d33304ifi1rp4s.cloudfront.net/img/teelaunch-logo.png "Teelaunch Logo")
 
 ```bash
-pantone -hex 2A70AE
+pantone --hex 2A70AE
 ```
 
 Or we could use the rgb values:
 
 ```bash
-pantone -rgb 42,112,174
+pantone --rgb 42,112,174
 ```
 
 Output in table format on command line:

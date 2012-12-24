@@ -12,8 +12,8 @@ function range(val) {
 
 program
   .version(version)
-  .option('-rgb, --rgb <r>,<g>,<b>', 'lookup using rgb values', range)
-  .option('-hex, --hex <000000>', 'lookup using hex value')
+  .option('--rgb <r>,<g>,<b>', 'lookup using rgb values', range)
+  .option('--hex <000000>', 'lookup using hex value')
   .parse(process.argv)
 
 program.hex = program.hex || ''

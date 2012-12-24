@@ -33,12 +33,12 @@ function pantone(_options, _callback) {
   if (typeof callback !== 'function')
     throw new Error('pantone - `callback` is not a function')
 
-  // if user passed defaults.hex convert it to defaults.rgb
-  if ('hex' in defaults) {
-    if (typeof defaults.hex === 'string') {
-      defaults.rgb = defaults.hex
+  // if user passed options.hex convert it to options.rgb
+  if ('hex' in options) {
+    if (typeof options.hex === 'string') {
+      options.rgb = options.hex
     }
-    delete defaults.hex
+    delete options.hex
   }
 
   // set defaults

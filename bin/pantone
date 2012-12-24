@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+var program  = require('commander')
+  , pkg      = require('../package.json')
+  , version  = pkg.version
+  , pantone  = require('../pantone')
+  , Table    = require('cli-table')
+
+function range(val) {
+  return val.split(',').map(Number)
+}
+
+program
+  .version(version)
+  .option('-rgb, --rgb <r>,<g>,<b>', 'lookup using rgb values', range)
+  .option('-hex, --hex <000000>', 'lookup using hex value')
+  .parse(process.argv)
+
+program.hex = program.hex || ''
+program.rgb = program.rgb || [ 0, 0, 0 ]
+
+var options = {
+    r   : program.rgb[0] || 0
+  , g   : program.rgb[1] || 0
+  , b   : program.rgb[2] || 0
+  , rgb : program.hex
+}
+
+pantone(options, callback)
+
+function callback(err, results) {
+  if (err) throw err
+
+  var table = new Table({
+    head: [ 'dist', 'name', 'r', 'g', 'b', 'hex' ]
+  })
+
+  for(var i=0; i<results.length; i+=1) {
+    var row = results[i]
+    table.push([
+        row.dist
+      , row.name
+      , row.r
+      , row.g
+      , row.b
+      , row.hex
+    ])
+  }
+  console.log(table.toString())
+
+}

@@ -78,14 +78,14 @@ Output in table format on command line:
 
 ## Dependency
 
-1. Install npm module:
+**1.** Install npm module:
 
 ```bash
 cd ~/project
 npm install pantone
 ```
 
-2. Require and lookup color:
+**2.** Require and lookup color:
 
 ```js
 

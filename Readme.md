@@ -5,6 +5,8 @@
 
 This module finds the nearest PMS color using hex or rgb colors from CLI or as a dependency.
 
+![PMS Pantone Color Chart](https://d33304ifi1rp4s.cloudfront.net/img/pantone.png "PMS Pantone Color Chart")
+
 
 ## Install
 

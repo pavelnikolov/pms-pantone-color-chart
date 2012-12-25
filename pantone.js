@@ -65,7 +65,7 @@ function sendRequest(self) {
     $('#content table tr').each(parseTable(self));
 
     // remove header row
-    self.rows = self.rows.slice(2, self.rows.length)
+    self.rows = self.rows.slice(1, self.rows.length)
 
     self.callback(null, self.rows)
 

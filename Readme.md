@@ -5,8 +5,7 @@ Find the nearest PMS color using hex or rgb colors from command line or as a dep
 
 ![PMS Pantone Color Chart RGB CMYK Hex Matching](https://d33304ifi1rp4s.cloudfront.net/img/pms-pantone-color-chart-matching.png "PMS Pantone Color Chart RGB CMYK Hex Matching")
 
-Interested in buying a physical Pantone® color formula guide?
-
+Interested in buying a physical Pantone® color formula guide?<br />
 [Pantone GP1301XR Formula Guide Solid Coated and Solid Uncoated](http://www.amazon.com/gp/product/B007X7W3P8/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=aell-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B007X7W3P8")
 
 ## Install

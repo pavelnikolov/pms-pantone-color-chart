@@ -1,12 +1,11 @@
 
 # PMS Pantone® Color Chart <sup>0.0.3</sup>
 
-**NOTE:** PANTONE® and other Pantone, Inc. trademarks are the property of [Pantone, Inc.][1]
-
-This module finds the nearest PMS color using hex or rgb colors from CLI or as a dependency.
+Find the nearest PMS color using hex or rgb colors from command line or as a dependency.  No need to use Photoshop anymore!
 
 ![PMS Pantone Color Chart RGB CMYK Hex Matching](https://d33304ifi1rp4s.cloudfront.net/img/pms-pantone-color-chart-matching.png "PMS Pantone Color Chart RGB CMYK Hex Matching")
 
+Interested in buying a physical Pantone® color formula guide?  Support us by using this link: [Pantone GP1301XR Formula Guide Solid Coated and Solid Uncoated](http://www.amazon.com/gp/product/B007X7W3P8/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=aell-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B007X7W3P8")
 
 ## Install
 
@@ -114,12 +113,12 @@ function hexCallback(err, results) {
 }
 ```
 
-## Links
 
-* Website: <http://www.pantone.com/>
-* Twitter: <http://twitter.com/pantone>
-* Facebook: <https://www.facebook.com/PantoneColor>
+## Notice
+
+PANTONE® and other Pantone, Inc. trademarks are the property of [Pantone, Inc.][1]
 
 [1]: http://www.pantone.com/
 [2]: https://teelaunch.com
 
+![Amazon Associate Network](http://www.assoc-amazon.com/e/ir?t=aell-20&l=as2&o=1&a=B007X7W3P8 "")

@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>PMS Pantone Colors Chart by teelaunch</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>PMS Pantone Colors Chart</h1>
+        <p>Find the nearest PMS color using hex or rgb colors from CLI or as a dependency.PANTONE® and other Pantone, Inc. trademarks are the property of Pantone, Inc.</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/teelaunch/pms-pantone-color-chart" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/teelaunch/pms-pantone-color-chart/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/teelaunch/pms-pantone-color-chart/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>PMS Pantone® Color Chart <sup>0.0.3</sup>
+</h1>
+
+<p>Find the nearest PMS color using hex or rgb colors from command line or as a dependency.  No need to use Photoshop anymore!</p>
+
+<p><img src="https://d33304ifi1rp4s.cloudfront.net/img/pms-pantone-color-chart-matching.png" alt="PMS Pantone Color Chart RGB CMYK Hex Matching" title="PMS Pantone Color Chart RGB CMYK Hex Matching"></p>
+
+<p>Interested in buying a physical Pantone® color formula guide?<br><a href="http://www.amazon.com/gp/product/B007X7W3P8/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=aell-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B007X7W3P8%22">Pantone GP1301XR Formula Guide Solid Coated and Solid Uncoated</a></p>
+
+<h2>Install</h2>
+
+<div class="highlight"><pre>npm install -g pantone
+</pre></div>
+
+<h2>CLI</h2>
+
+<p>Let's try to find the nearest PMS color to <a href="https://teelaunch.com">Teelaunch's</a> blue in hex:</p>
+
+<p><img src="https://d33304ifi1rp4s.cloudfront.net/img/teelaunch-logo.png" alt="Teelaunch Logo" title="Teelaunch Logo"></p>
+
+<div class="highlight"><pre>pantone --hex 2A70AE
+</pre></div>
+
+<p>Or we could use the rgb values:</p>
+
+<div class="highlight"><pre>pantone --rgb 42,112,174
+</pre></div>
+
+<p>Output in table format on command line:</p>
+
+<div class="highlight"><pre>┌───────┬─────────────────┬────┬─────┬─────┬────────┐
+│ dist  │ name            │ r  │ g   │ b   │ hex    │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0     │ Your query      │ 42 │ 112 │ 174 │ 2A70AE │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.023 │ 660             │ 66 │ 107 │ 186 │ 426BBA │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.037 │ 2728            │ 51 │ 66  │ 181 │ 3342B5 │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.042 │ 285             │ 26 │ 117 │ 207 │ 1A75CF │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.046 │ 7455            │ 77 │ 89  │ 171 │ 4D59AB │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.05  │ 653             │ 54 │ 87  │ 140 │ 36578C │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.053 │ 7459            │ 71 │ 153 │ 181 │ 4799B5 │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.055 │ 641             │ 0  │ 120 │ 173 │ 0078AD │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.056 │ 307             │ 0  │ 120 │ 171 │ 0078AB │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.057 │ 647             │ 38 │ 87  │ 135 │ 265787 │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.058 │ 7462            │ 13 │ 92  │ 145 │ 0D5C91 │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.064 │ Process Blue 2X │ 0  │ 119 │ 191 │ 0077BF │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.064 │ 801 2X          │ 0  │ 137 │ 175 │ 0089AF │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.064 │ 3015            │ 0  │ 102 │ 158 │ 00669E │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.065 │ 7468            │ 0  │ 121 │ 156 │ 00789C │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.066 │ 314             │ 0  │ 133 │ 161 │ 0085A1 │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.066 │ 633             │ 0  │ 128 │ 158 │ 00809E │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.066 │ 2945            │ 0  │ 87  │ 166 │ 0057A6 │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.07  │ 7473            │ 54 │ 163 │ 145 │ 36A391 │
+├───────┼─────────────────┼────┼─────┼─────┼────────┤
+│ 0.071 │ 640             │ 0  │ 140 │ 186 │ 008CBA │
+└───────┴─────────────────┴────┴─────┴─────┴────────┘
+</pre></div>
+
+<h2>Dependency</h2>
+
+<p><strong>1.</strong> Install npm module:</p>
+
+<div class="highlight"><pre><span class="nb">cd</span> ~/project
+npm install pantone
+</pre></div>
+
+<p><strong>2.</strong> Require and lookup color:</p>
+
+<div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">pantone</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'pantone'</span><span class="p">)</span>
+
+<span class="c1">// rgb usage</span>
+
+<span class="nx">pantone</span><span class="p">({</span> <span class="nx">r</span><span class="o">:</span> <span class="mi">42</span><span class="p">,</span> <span class="nx">g</span><span class="o">:</span> <span class="mi">112</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="mi">174</span> <span class="p">},</span> <span class="nx">rgbCallback</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nx">rgbCallback</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">results</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// hex usage</span>
+
+<span class="nx">pantone</span><span class="p">({</span> <span class="nx">hex</span><span class="o">:</span> <span class="s1">'#2A70AE'</span> <span class="p">},</span> <span class="nx">hexCallback</span><span class="p">)</span> <span class="c1">// you can also use `rgb` instead of `hex`</span>
+
+<span class="kd">function</span> <span class="nx">hexCallback</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">results</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>Notice</h2>
+
+<p>PANTONE® and other Pantone, Inc. trademarks are the property of <a href="http://www.pantone.com/">Pantone, Inc.</a></p>
+
+<p><img src="http://www.assoc-amazon.com/e/ir?t=aell-20&amp;l=as2&amp;o=1&amp;a=B007X7W3P8" alt="Amazon Associate Network"></p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/teelaunch">teelaunch</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-37325521-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>

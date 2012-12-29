@@ -1,7 +1,9 @@
 
 # PMS Pantone® Color Chart <sup>0.0.3</sup>
 
-Find the nearest PMS color using hex or rgb colors from command line or as a dependency.  No need to use Photoshop anymore!
+Find the nearest PMS color using hex or rgb colors from command line or as a dependency.
+
+No need to use Adobe Photoshop® eye dropper tool nor swatch libraries!
 
 ![PMS Pantone Color Chart RGB CMYK Hex Matching](https://d33304ifi1rp4s.cloudfront.net/img/pms-pantone-color-chart-matching.png "PMS Pantone Color Chart RGB CMYK Hex Matching")
 

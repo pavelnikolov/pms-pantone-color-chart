@@ -1,5 +1,5 @@
 
-# PMS Pantone® Color Chart <sup>0.0.3</sup>
+# PMS Pantone® Color Chart <sup>[![Version Badge](http://vb.teelaun.ch/teelaunch/pms-pantone-color-chart.svg)](https://npmjs.org/package/pantone)</sup>
 
 Find the nearest PMS color using hex or rgb colors from command line or as a dependency.
 
